@@ -1,5 +1,5 @@
 
-<img src="java-logo.png"/>
+<img src="java-logo.png" width="150"/>
 
 # 📖 java-gameslist
 > 🕹 A list of games, a simple CRUD in Java
