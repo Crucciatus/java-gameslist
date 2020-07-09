@@ -21,7 +21,7 @@ public class Game {
   /**
    * defines game size in GB
    * */
-  private Long installerSize;
+  private Integer installerSize;
 
   /**
    * game release year
@@ -57,7 +57,7 @@ public class Game {
             '}';
   }
 
-  public Game(String name, String description, String genre, Long installerSize, Integer releaseYear,
+  public Game(String name, String description, String genre, Integer installerSize, Integer releaseYear,
               boolean multiplayer, boolean online, Integer minimumAge) {
     this.name = name;
     this.description = description;
@@ -98,11 +98,11 @@ public class Game {
     this.genre = genre;
   }
 
-  public Long getInstallerSize() {
+  public Integer getInstallerSize() {
     return installerSize;
   }
 
-  public void setInstallerSize(Long installerSize) {
+  public void setInstallerSize(Integer installerSize) {
     this.installerSize = installerSize;
   }
 
