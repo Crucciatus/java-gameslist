@@ -69,6 +69,11 @@ public class Game {
     this.minimumAge = minimumAge;
   }
 
+  public Game() {
+    this.name = "Not defined";
+    this.description = "";
+  }
+
   public String getName() {
     return name;
   }
