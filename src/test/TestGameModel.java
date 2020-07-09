@@ -8,7 +8,7 @@ public class TestGameModel {
     System.out.println("Game: "+game);
     Game game02 = new Game(
             "Tetris",
-            "retro",
+            "One of the most famous old games of all time",
             "Puzzle",
             1,
             2013,
@@ -16,5 +16,7 @@ public class TestGameModel {
             true,
             12
     );
+
+    System.out.println(game02);
   }
 }
