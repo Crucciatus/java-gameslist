@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GamePersistence {
 
-  public static final String SEPARATOR = " | ";
+  public static final String SEPARATOR = "|";
   private List<Game> games;
 
   public GamePersistence() {
