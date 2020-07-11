@@ -79,8 +79,28 @@ public class GamePersistence {
     List<String> lines = Files.readAllLines(Paths.get(this.archiveName));
 
     for (String line : lines) {
+      //TODO remove debug
       System.out.println(line);
+
+      Game game = createGameObjectFromLine(line);
+
+      this.add(game);
     }
+  }
+
+  public Game createGameObjectFromLine(String line) {
+    String [] array = line.split(SEPARATOR);
+    Game game = new Game();
+
+    game.setName(array[0]);
+    game.setDescription(array[1]);
+    game.setGenre(array[2]);
+    game.setInstallerSize(Integer.valueOf(array[3]));
+    game.setReleaseYear(Integer.valueOf(array[4]));
+    game.setMultiplayer(Boolean.valueOf(array[5]));
+    game.setOnline(Boolean.valueOf(array[6]));
+    game.setMinimumAge(Integer.valueOf(array[7]));
+    return game;
   }
 
   /**
