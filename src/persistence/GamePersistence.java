@@ -95,11 +95,11 @@ public class GamePersistence {
     game.setName(array[0]);
     game.setDescription(array[1]);
     game.setGenre(array[2]);
-    game.setInstallerSize(Integer.valueOf(array[3]));
-    game.setReleaseYear(Integer.valueOf(array[4]));
-    game.setMultiplayer(Boolean.valueOf(array[5]));
-    game.setOnline(Boolean.valueOf(array[6]));
-    game.setMinimumAge(Integer.valueOf(array[7]));
+    try { game.setInstallerSize(Integer.valueOf(array[3])); } catch (Exception e) {}
+    try { game.setReleaseYear(Integer.valueOf(array[4])); } catch (Exception e) {}
+    try { game.setMultiplayer(Boolean.valueOf(array[5])); } catch (Exception e) {}
+    try { game.setOnline(Boolean.valueOf(array[6])); } catch (Exception e) {}
+    try { game.setMinimumAge(Integer.valueOf(array[7])); } catch (Exception e) {}
 
     return game;
   }
