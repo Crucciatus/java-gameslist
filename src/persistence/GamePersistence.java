@@ -88,7 +88,7 @@ public class GamePersistence {
     }
   }
 
-  public Game createGameObjectFromLine(String line) {
+  private Game createGameObjectFromLine(String line) {
     String [] array = line.split(SEPARATOR);
     Game game = new Game();
 
