@@ -5,16 +5,25 @@ import model.Game;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GamePersistence {
 
   public static final String SEPARATOR = "|";
+  private String archiveName;
   private List<Game> games;
 
+  public GamePersistence(String archiveName) {
+    this.archiveName = archiveName;
+    this.clearList();
+  }
+
   public GamePersistence() {
-    this.games = new ArrayList<Game>();
+    this.archiveName = "games.txt";
+    this.clearList();
   }
 
   /**
@@ -33,7 +42,7 @@ public class GamePersistence {
   public boolean remove(Game game) {
     boolean exist = this.games.contains(game);
 
-    if(exist) {
+    if (exist) {
       this.games.remove(game);
     }
 
@@ -46,7 +55,7 @@ public class GamePersistence {
    * @return inform if the game as been removed from the game list
    */
   public boolean remove(int index) {
-    if(index >=0 && index < this.games.size()) {
+    if (index >=0 && index < this.games.size()) {
       Game game = this.games.get(index);
 
       return this.remove(game);
@@ -56,10 +65,22 @@ public class GamePersistence {
   }
 
   /**
+   * clear the games list
+   */
+  private void clearList() {
+    this.games = new ArrayList<Game>();
+  }
+
+  /**
    * reads the file from disk
    */
-  public void readArchive() {
+  public void readArchive() throws IOException {
+    this.clearList();
+    List<String> lines = Files.readAllLines(Paths.get(this.archiveName));
 
+    for (String line : lines) {
+      System.out.println(line);
+    }
   }
 
   /**
@@ -67,7 +88,7 @@ public class GamePersistence {
    * overwriting the reported file if it exists
    */
   public void recordArchive() throws IOException {
-    FileWriter archive = new FileWriter("games.txt");
+    FileWriter archive = new FileWriter(this.archiveName);
     PrintWriter recordArchive = new PrintWriter(archive);
 
     for (Game game : this.games) {
