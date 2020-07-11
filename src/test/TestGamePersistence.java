@@ -9,7 +9,7 @@ public class TestGamePersistence {
   public static void main(String[] args) {
     GamePersistence p = new GamePersistence();
 
-    //testSaveArchive(p);
+    testSaveArchive(p);
 
     try {
       p.readArchive();

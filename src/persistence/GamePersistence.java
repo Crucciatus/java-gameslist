@@ -129,14 +129,21 @@ public class GamePersistence {
    * @return
    */
   private String separateLineText(Game game) {
-    return game.getName() + SEPARATOR +
-    game.getDescription() + SEPARATOR +
-    game.getGenre() + SEPARATOR +
-    game.getInstallerSize() + SEPARATOR +
-    game.getReleaseYear() + SEPARATOR +
-    game.isMultiplayer() + SEPARATOR +
-    game.isOnline() + SEPARATOR +
-    game.getMinimumAge();
+    return getStringValue(game.getName())   + SEPARATOR +
+    getStringValue(game.getDescription())   + SEPARATOR +
+    getStringValue(game.getGenre())         + SEPARATOR +
+    getStringValue(game.getInstallerSize()) + SEPARATOR +
+    getStringValue(game.getReleaseYear())   + SEPARATOR +
+    getStringValue(game.isMultiplayer())    + SEPARATOR +
+    getStringValue(game.isOnline())         + SEPARATOR +
+    getStringValue(game.getMinimumAge());
+  }
+
+  private String getStringValue(Object object) {
+    if (object == null) {
+      return "";
+    }
+    return object.toString();
   }
 
   /**
