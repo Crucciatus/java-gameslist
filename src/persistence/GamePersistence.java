@@ -12,7 +12,7 @@ import java.util.List;
 
 public class GamePersistence {
 
-  public static final String SEPARATOR = "|";
+  public static final String SEPARATOR = "#!#";
   private String archiveName;
   private List<Game> games;
 
@@ -100,6 +100,7 @@ public class GamePersistence {
     game.setMultiplayer(Boolean.valueOf(array[5]));
     game.setOnline(Boolean.valueOf(array[6]));
     game.setMinimumAge(Integer.valueOf(array[7]));
+
     return game;
   }
 

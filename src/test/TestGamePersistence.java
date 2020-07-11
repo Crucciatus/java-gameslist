@@ -9,6 +9,19 @@ public class TestGamePersistence {
   public static void main(String[] args) {
     GamePersistence p = new GamePersistence();
 
+    //testSaveArchive(p);
+
+    try {
+      p.readArchive();
+      for (Game game : p.getGames()) {
+        System.out.println(game);
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public static void testSaveArchive(GamePersistence p) {
     Game g1 = new Game();
     p.add(g1);
 
